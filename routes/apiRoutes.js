@@ -1,9 +1,9 @@
 const axios = require("axios");
 const router = require("express").Router();
 
-router.get("/recipes", (req, res) => {
+router.get("/articles", (req, res) => {
   axios
-    .get("http://www.recipepuppy.com/api/", { params: req.query })
+    .get("https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=38c636a55a034777a89339eee9c68565&q=", { params: req.query })
     .then(({ data: { results } }) => res.json(results))
     .catch(err => res.status(422).json(err));
 });
